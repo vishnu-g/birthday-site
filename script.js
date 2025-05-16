@@ -17,7 +17,8 @@ function blowCandles() {
   });
   showWish('Make a wish! 🎂');
   setTimeout(() => {
-    showWish('Wishing you a day filled with love, happiness and joy! 🎉');
+    const userWish = prompt('What do you wish for? 🎁');
+    showWish(`Your wish "${userWish}" is on its way! 🌟`);
   }, 3500);
 }
 
