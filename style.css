@@ -1,12 +1,19 @@
 /* Reset & base styles */
 body {
   margin: 0;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: #f9f6f7;
-  color: #4b3b53;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #ff9a9e, #fad0c4, #fbc2eb, #a18cd1, #fbc2eb);
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
+  color: #fff;
   text-align: center;
-  overflow-x: hidden;
   padding: 20px;
+}
+
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
 h1, h2 {
@@ -28,20 +35,13 @@ h1, h2 {
 .balloon {
   position: absolute;
   bottom: 0;
-  width: 60px;
-  height: 80px;
-  background: linear-gradient(135deg, #f06292, #ec407a);
-  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
-  cursor: pointer;
-  pointer-events: auto;
-  animation: floatUp 8s linear infinite;
+  width: 50px;
+  height: 70px;
+  background: radial-gradient(circle, #ff7eb3, #ff758c);
+  border-radius: 50%;
+  animation: float 4s ease-in-out infinite;
 }
 
-.balloon:nth-child(1) {
-  left: 10%;
-  animation-delay: 0s;
-  background: linear-gradient(135deg, #f48fb1, #ec407a);
-}
 .balloon:nth-child(2) {
   left: 45%;
   animation-delay: 3s;
@@ -218,4 +218,88 @@ button:hover {
 .wish-popup.show {
   transform: translate(-50%, -50%) scale(1);
   pointer-events: auto;
+}
+body {
+  background: linear-gradient(135deg, #ff9a9e, #fad0c4, #fbc2eb, #a18cd1, #fbc2eb);
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
+  color: #fff;
+  font-family: Arial, sans-serif;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.balloons-container .balloon {
+  background: radial-gradient(circle, #ff7eb3, #ff758c);
+  border-radius: 50%;
+  width: 50px;
+  height: 70px;
+  margin: 10px;
+  display: inline-block;
+  position: relative;
+  animation: float 4s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
+
+.cake-section .cake {
+  background: #ffcccb;
+  border-radius: 10px;
+  width: 200px;
+  height: 100px;
+  margin: 20px auto;
+  position: relative;
+}
+
+.cake-section .candles .flame {
+  background: radial-gradient(circle, #ffdd00, #ff9900);
+  width: 10px;
+  height: 20px;
+  border-radius: 50%;
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: flicker 0.5s infinite alternate;
+}
+
+@keyframes flicker {
+  0% { opacity: 1; transform: scale(1); }
+  100% { opacity: 0.8; transform: scale(1.1); }
+}
+
+.gallery img {
+  border: 5px solid #fff;
+  border-radius: 10px;
+  margin: 10px;
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.gallery img:hover {
+  transform: scale(1.1);
+}
+
+.wish-popup {
+  background: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: none;
 }

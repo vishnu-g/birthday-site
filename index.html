@@ -11,21 +11,195 @@
     <source src="assets/music/birthday.mp3" type="audio/mpeg" />
   </audio>
 
-  <div class="balloons-container">
-    <div class="balloon" onclick="popBalloon(this)"></div>
-    <div class="balloon" onclick="popBalloon(this)"></div>
-    <div class="balloon" onclick="popBalloon(this)"></div>
-  </div>
+  <div class="balloon" onclick="popBalloon(this)" style="animation: flyBalloon 10s linear infinite; left: 10%;"></div>
+  <div class="balloon" onclick="popBalloon(this)" style="animation: flyBalloon 12s linear infinite; left: 20%;"></div>
+  <div class="balloon" onclick="popBalloon(this)" style="animation: flyBalloon 14s linear infinite; left: 30%;"></div>
+  <div class="balloon" onclick="popBalloon(this)" style="animation: flyBalloon 11s linear infinite; left: 40%;"></div>
+  <div class="balloon" onclick="popBalloon(this)" style="animation: flyBalloon 13s linear infinite; left: 50%;"></div>
+  <div class="balloon" onclick="popBalloon(this)" style="animation: flyBalloon 15s linear infinite; left: 60%;"></div>
+  <div class="balloon" onclick="popBalloon(this)" style="animation: flyBalloon 9s linear infinite; left: 70%;"></div>
+  <div class="balloon" onclick="popBalloon(this)" style="animation: flyBalloon 16s linear infinite; left: 80%;"></div>
+  <div class="balloon" onclick="popBalloon(this)" style="animation: flyBalloon 10s linear infinite; left: 90%;"></div>
+  <div class="balloon" onclick="popBalloon(this)" style="animation: flyBalloon 12s linear infinite; left: 95%;"></div>
+
+  <style>
+    @keyframes flyBalloon {
+      0% {
+        transform: translateY(100vh) scale(1);
+        opacity: 1;
+      }
+      50% {
+        transform: translateY(50vh) scale(1.1);
+      }
+      100% {
+        transform: translateY(-10vh) scale(1.2);
+        opacity: 0.8;
+      }
+    }
+
+    body {
+      position: relative;
+      overflow-x: hidden; /* Prevent horizontal scrolling while allowing vertical scrolling */
+    }
+
+    .balloon {
+      position: absolute;
+      bottom: 0;
+      width: 50px;
+      height: 70px;
+      background-color: red;
+      border-radius: 50%;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+  </style>
 
   <section class="message-section">
     <h1 class="reveal-message">🎉 Happy Birthday, Pravallika! 🎉</h1>
+    <div class="blasts">
+      <div class="blast"></div>
+      <div class="blast"></div>
+      <div class="blast"></div>
+      <div class="blast"></div>
+      <div class="blast"></div>
+      <div class="blast"></div>
+      <div class="blast"></div>
+      <div class="blast"></div>
+      <div class="blast"></div>
+      <div class="blast"></div>
+    </div>
+    <div class="sparkles"></div>
+      <div class="sparkle"></div>
+      <div class="sparkle"></div>
+      <div class="sparkle"></div>
+      <div class="sparkle"></div>
+      <div class="sparkle"></div>
+      <div class="sparkle"></div>
+      <div class="sparkle"></div>
+      <div class="sparkle"></div>
+      <div class="sparkle"></div>
+      <div class="sparkle"></div>
+    </div>
+    <div class="shower"></div>
+      <div class="shower-item"></div>
+      <div class="shower-item"></div>
+      <div class="shower-item"></div>
+      <div class="shower-item"></div>
+      <div class="shower-item"></div>
+      <div class="shower-item"></div>
+      <div class="shower-item"></div>
+      <div class="shower-item"></div>
+      <div class="shower-item"></div>
+      <div class="shower-item"></div>
+    </div>
   </section>
+
+  <style>
+    .blasts {
+      position: relative;
+      width: 100%;
+      height: 0;
+      overflow: visible;
+    }
+
+    .blast {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background-color: gold;
+      border-radius: 50%;
+      animation: blastAnimation 1s ease-out infinite;
+    }
+
+    .blast:nth-child(1) { left: 50%; top: 0; animation-delay: 0s; }
+    .blast:nth-child(2) { left: 60%; top: 10%; animation-delay: 0.2s; }
+    .blast:nth-child(3) { left: 40%; top: 20%; animation-delay: 0.4s; }
+    .blast:nth-child(4) { left: 70%; top: 30%; animation-delay: 0.6s; }
+    .blast:nth-child(5) { left: 30%; top: 40%; animation-delay: 0.8s; }
+    .blast:nth-child(6) { left: 80%; top: 50%; animation-delay: 1s; }
+    .blast:nth-child(7) { left: 20%; top: 60%; animation-delay: 1.2s; }
+    .blast:nth-child(8) { left: 90%; top: 70%; animation-delay: 1.4s; }
+    .blast:nth-child(9) { left: 10%; top: 80%; animation-delay: 1.6s; }
+    .blast:nth-child(10) { left: 50%; top: 90%; animation-delay: 1.8s; }
+
+    @keyframes blastAnimation {
+      0% { transform: scale(1) translateY(0); opacity: 1; }
+      50% { transform: scale(1.5) translateY(-50px); opacity: 0.8; }
+      100% { transform: scale(2) translateY(-100px); opacity: 0; }
+    }
+
+    .sparkles {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      pointer-events: none;
+    }
+
+    .sparkle {
+      position: absolute;
+      width: 5px;
+      height: 5px;
+      background-color: pink;
+      border-radius: 50%;
+      animation: sparkleAnimation 2s ease-out infinite;
+    }
+
+    .sparkle:nth-child(1) { left: 10%; top: 10%; animation-delay: 0s; }
+    .sparkle:nth-child(2) { left: 20%; top: 20%; animation-delay: 0.2s; }
+    .sparkle:nth-child(3) { left: 30%; top: 30%; animation-delay: 0.4s; }
+    .sparkle:nth-child(4) { left: 40%; top: 40%; animation-delay: 0.6s; }
+    .sparkle:nth-child(5) { left: 50%; top: 50%; animation-delay: 0.8s; }
+    .sparkle:nth-child(6) { left: 60%; top: 60%; animation-delay: 1s; }
+    .sparkle:nth-child(7) { left: 70%; top: 70%; animation-delay: 1.2s; }
+    .sparkle:nth-child(8) { left: 80%; top: 80%; animation-delay: 1.4s; }
+    .sparkle:nth-child(9) { left: 90%; top: 90%; animation-delay: 1.6s; }
+    .sparkle:nth-child(10) { left: 50%; top: 10%; animation-delay: 1.8s; }
+
+    @keyframes sparkleAnimation {
+      0% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.5); opacity: 0.5; }
+      100% { transform: scale(2); opacity: 0; }
+    }
+
+    .shower {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      pointer-events: none;
+    }
+
+    .shower-item {
+      position: absolute;
+      width: 8px;
+      height: 20px;
+      background-color: lightblue;
+      border-radius: 4px;
+      animation: showerAnimation 2s linear infinite;
+    }
+
+    .shower-item:nth-child(1) { left: 10%; animation-delay: 0s; }
+    .shower-item:nth-child(2) { left: 20%; animation-delay: 0.2s; }
+    .shower-item:nth-child(3) { left: 30%; animation-delay: 0.4s; }
+    .shower-item:nth-child(4) { left: 40%; animation-delay: 0.6s; }
+    .shower-item:nth-child(5) { left: 50%; animation-delay: 0.8s; }
+    .shower-item:nth-child(6) { left: 60%; animation-delay: 1s; }
+    .shower-item:nth-child(7) { left: 70%; animation-delay: 1.2s; }
+    .shower-item:nth-child(8) { left: 80%; animation-delay: 1.4s; }
+    .shower-item:nth-child(9) { left: 90%; animation-delay: 1.6s; }
+    .shower-item:nth-child(10) { left: 50%; animation-delay: 1.8s; }
+
+    @keyframes showerAnimation {
+      0% { transform: translateY(-100px); opacity: 1; }
+      100% { transform: translateY(100vh); opacity: 0; }
+    }
+  </style>
 
   <section class="cake-section">
     <h2>Make a wish and blow the candles!<br><br></h2>
     <div class="cake">
       <div class="candles">
-      <div class="flame"></div>
+        <div class="flame"></div>
       </div>
     </div>
     <div class="button-container">

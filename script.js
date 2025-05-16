@@ -1,3 +1,6 @@
+const fs = require('fs');
+const path = require('path');
+
 // Pop balloon on click
 function popBalloon(balloon) {
   balloon.style.transition = 'transform 0.3s ease, opacity 0.3s ease';
@@ -18,18 +21,23 @@ function blowCandles() {
   showWish('Make a wish! 🎂');
   setTimeout(() => {
     const userWish = prompt('What do you wish for? 🎁');
-    showWish(`Your wish "${userWish}" is on its way! 🌟`);
+    if (userWish) {
+      showWish(`Your wish "${userWish}" is on its way! 🌟`);
+    } else {
+      showWish("Hope your wish is on its way! 🎉");
+    }
   }, 3500);
 }
 
-// Show birthday wish popup
+// Show wish message  s
 function showWish(message) {
-  const popup = document.getElementById('wishPopup');
-  const text = document.getElementById('wishText');
-  text.textContent = message;
-  popup.classList.add('show');
+  const wishPopup = document.getElementById('wishPopup');
+  const wishText = document.getElementById('wishText');
+  wishText.textContent = message;
+  wishPopup.style.display = 'block';
 
+  // Hide the popup after 3 seconds
   setTimeout(() => {
-    popup.classList.remove('show');
+    wishPopup.style.display = 'none';
   }, 3000);
 }
