@@ -232,6 +232,56 @@
     </p>
   </section>
 
+  <section class="interest-section"></section>
+    <button onclick="checkInterest()">Click, if interested</button>
+  </section>
+
+  <div id="passwordPrompt" style="display: none;">
+    <p>Please enter the password:</p>
+    <input type="password" id="passwordInput" />
+    <button onclick="verifyPassword()">Submit</button>
+  </div>
+
+  <div id="secretMessage" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: linear-gradient(45deg, #ff00ff, #00ffff); color: white; padding: 20px; border-radius: 10px; box-shadow: 0 0 20px rgba(255, 255, 255, 0.8); text-align: center; animation: electrify 1s infinite alternate;">
+    <button onclick="closePopup()" style="position: absolute; top: 10px; right: 10px; background: #ff0000; color: white; border: none; border-radius: 5px; padding: 5px 10px; cursor: pointer; font-size: 0.9rem;">Close</button>
+    <p style="font-size: 1.2rem; line-height: 1.8; color: #fff; background: linear-gradient(45deg, #ff7eb3, #ff758c); padding: 15px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); text-align: center; font-family: 'Arial', sans-serif;">
+      I’d love to meet you again and relive the warmth of our moments together. Every memory with you feels special, and I want to create even more—ones filled with laughter, love, and happiness. You’ve always held a special place in my heart, and I hope we can cherish many more beautiful moments together!
+    </p>
+  </div>
+
+  <script>
+    function closePopup() {
+      document.getElementById('secretMessage').style.display = 'none';
+    }
+  </script>
+
+  <style>
+    @keyframes electrify {
+      0% {
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.5), 0 0 20px rgba(255, 0, 255, 0.5), 0 0 30px rgba(0, 255, 255, 0.5);
+      }
+      100% {
+        box-shadow: 0 0 20px rgba(255, 255, 255, 0.8), 0 0 40px rgba(255, 0, 255, 0.8), 0 0 60px rgba(0, 255, 255, 0.8);
+      }
+    }
+  </style>
+
+  <script>
+    function checkInterest() {
+      document.getElementById('passwordPrompt').style.display = 'block';
+    }
+
+    function verifyPassword() {
+      const password = document.getElementById('passwordInput').value;
+      if (password === '0206') {
+        document.getElementById('passwordPrompt').style.display = 'none';
+        document.getElementById('secretMessage').style.display = 'block';
+      } else {
+        alert('Incorrect password. Please try again.');
+      }
+    }
+  </script>
+
   <div class="wish-popup" id="wishPopup">
     <p id="wishText"></p>
   </div>
